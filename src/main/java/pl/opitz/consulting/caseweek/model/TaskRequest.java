@@ -1,5 +1,8 @@
 package pl.opitz.consulting.caseweek.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public abstract class TaskRequest {
 
   Task task;
