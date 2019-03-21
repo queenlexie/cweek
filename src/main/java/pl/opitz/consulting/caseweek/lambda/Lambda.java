@@ -10,6 +10,8 @@ import pl.opitz.consulting.caseweek.tasks.*;
 
 public class Lambda {
 
+  private static final String TEAM_CUSTOM_NAME = null;
+
   private static final Logger LOG = Logger.getLogger(Lambda.class);
 
   private RectangleTask rectangleTask;
@@ -21,12 +23,14 @@ public class Lambda {
   }
 
   @LambdaFunction(invocationType = InvocationType.RequestResponse)
-  public TaskResponse getRequestAndReturnResponse(LambdaRequest request) throws IOException {
+  public Object getRequestAndReturnResponse(LambdaRequest request) throws IOException {
     ObjectMapper objectMapper = new ObjectMapper();
 
     LOG.debug(objectMapper.writeValueAsString(request));
 
     switch (request.getTask()) {
+      case LAMBDA_DEPLOYED:
+        return TEAM_CUSTOM_NAME;
       case RECTANGLE_FIELD:
         return rectangleTask.resolveTask(
             objectMapper.readValue(request.getRequestAsJson(), RectangleTaskRequest.class));

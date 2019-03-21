@@ -5,7 +5,7 @@ public class PalindromeTaskRequest extends TaskRequest {
   private String word;
 
   public PalindromeTaskRequest() {
-    this.task = Task.PALINDROME;
+    setTask(Task.PALINDROME);
   }
 
   public PalindromeTaskRequest(String word) {

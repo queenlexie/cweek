@@ -23,21 +23,4 @@ public class RectangleTaskResponse extends TaskResponse {
   public void setField(BigDecimal field) {
     this.field = field;
   }
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    RectangleTaskResponse that = (RectangleTaskResponse) o;
-    return Objects.equals(field, that.field);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(field);
-  }
 }
