@@ -10,16 +10,18 @@ import pl.opitz.consulting.caseweek.tasks.*;
 
 public class Lambda {
 
-  private static final String TEAM_CUSTOM_NAME = null;
+  private static final String TEAM_CUSTOM_NAME = "CKW";
 
   private static final Logger LOG = Logger.getLogger(Lambda.class);
 
   private RectangleTask rectangleTask;
   private PalindromeTask palindromeTask;
+  private PrimeNumberTask primeNumberTask;
 
   public Lambda() {
     this.rectangleTask = TaskFactory.instance().createRecentagleTask();
     this.palindromeTask = TaskFactory.instance().createPalindromeTask();
+    this.primeNumberTask = TaskFactory.instance().createPrimeNumberTask();
   }
 
   @LambdaFunction(invocationType = InvocationType.RequestResponse)
@@ -36,6 +38,10 @@ public class Lambda {
             objectMapper.readValue(request.getRequestAsJson(), RectangleTaskRequest.class));
       case PALINDROME:
         return null;
+      case PRIME_NUMBER:
+        return primeNumberTask.resolveTask(
+                objectMapper.readValue(request.getRequestAsJson(), PrimeNumberTaskRequest.class)
+        );
       default:
         return null;
     }

@@ -7,6 +7,6 @@ public class RectangleTask implements Task<RectangleTaskRequest, RectangleTaskRe
 
   @Override
   public RectangleTaskResponse resolveTask(RectangleTaskRequest request) {
-    return null;
+    return new RectangleTaskResponse(request.getLength().multiply(request.getWidth()));
   }
 }

@@ -24,4 +24,8 @@ public class TaskFactory {
   public PalindromeTask createPalindromeTask() {
     return new PalindromeTask();
   }
+
+  public PrimeNumberTask createPrimeNumberTask() {
+    return new PrimeNumberTask();
+  }
 }
