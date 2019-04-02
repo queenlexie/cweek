@@ -37,7 +37,8 @@ public class Lambda {
         return rectangleTask.resolveTask(
             objectMapper.readValue(request.getRequestAsJson(), RectangleTaskRequest.class));
       case PALINDROME:
-        return null;
+        return palindromeTask.resolveTask(
+                objectMapper.readValue(request.getRequestAsJson(), PalindromeTaskRequest.class));
       case PRIME_NUMBER:
         return primeNumberTask.resolveTask(
                 objectMapper.readValue(request.getRequestAsJson(), PrimeNumberTaskRequest.class)

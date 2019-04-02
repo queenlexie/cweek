@@ -11,14 +11,13 @@ public class PrimeNumberTask implements Task<PrimeNumberTaskRequest, PrimeNumber
         return response;
     }
 
-    public static boolean isPrime(int num){
-        if ( num > 2 && num%2 == 0 ) {
+    static Boolean isPrime(int number) {
+        if(number < 2)
             return false;
-        }
-        int top = (int)Math.sqrt(num) + 1;
-        for(int i = 3; i < top; i+=2){
-            if(num % i == 0){
-                return false;
+        else {
+            for(int i = 2; i < Math.floor(Math.sqrt(number)) + 1; i++){
+                if(number % i == 0)
+                    return false;
             }
         }
         return true;
