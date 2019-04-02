@@ -7,6 +7,15 @@ public class PalindromeTask implements Task<PalindromeTaskRequest, PalindromeTas
 
   @Override
   public PalindromeTaskResponse resolveTask(PalindromeTaskRequest request) {
-    return null;
+    return new PalindromeTaskResponse(checkPalindrom(request.getWord()));
+  }
+
+  private Boolean checkPalindrom(String word) {
+    word = word.toLowerCase();
+    for(int i = 0; i < word.length(); i++) {
+      if(word.charAt(i) != word.charAt(word.length() - i - 1))
+        return false;
+    }
+    return true;
   }
 }
